@@ -7,8 +7,8 @@ function validateFiled(object, key, keyDescription) {
     const objectKeyValue = object[key];
   
     keyDescription.forEach((descr) => {
-      const argsArray = [objectKeyValue, ...descr.validationParams];
-      if (!descr.validationRule.apply(null, argsArray)) {
+      const argsArray = [objectKeyValue, ...descr.validator.params];
+      if (!descr.validator.rule.apply(null, argsArray)) {
         errorList.push({
           key,
           message: descr.validationMessage,

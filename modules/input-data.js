@@ -13,48 +13,58 @@ const user = {
 const userScheme = {
     firstName: [
       {
-        /* validator: {
-          params: ["string"],
-          rule: checkType
-        } */
-        validationRule: checkType,
-        validationParams: ["string"],
+        validator: {
+          rule: checkType,
+          params: ["string"]
+        },
         validationMessage: "First Name not string",
       },
       {
-        validationRule: nonEmptyString,
-        validationParams: [],
+        validator: {
+          rule: nonEmptyString,
+          params: []
+        }, 
         validationMessage: "First Name is empty",
       },
     ],
     lastName: [
       {
-        validationRule: checkType,
-        validationParams: ["string"],
+        validator: {
+          rule: checkType,
+          params: ["string"]
+        },
         validationMessage: "Last Name not string",
       },
       {
-        validationRule: nonEmptyString,
-        validationParams: [],
+        validator: {
+          rule: nonEmptyString,
+          params: []
+        },
         validationMessage: "Last Name is empty",
       },
     ],
     age: [
       {
-        validationRule: checkType,
-        validationParams: ["number"],
+        validator: {
+          rule: checkType,
+          params: ["number"]
+        },
         validationMessage: "Age not number",
       },
       {
-        validationRule: numberInRange,
-        validationParams: [10, 56],
+        validator: {
+          rule: numberInRange,
+          params: [10, 56]
+        },
         validationMessage: `Age not in range between 10 and 56`,
       },
     ],
     phone: [
       {
-        validationRule: checkType,
-        validationParams: ["string"],
+        validator: {
+          rule: checkType,
+          params: ["string"]
+        },
         validationMessage: "Phone not string",
       },
     ],
