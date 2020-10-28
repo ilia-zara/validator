@@ -1,19 +1,22 @@
 /* eslint-disable valid-typeof */
 /* eslint-disable no-console */
 
-import {checkType, nonEmptyString, numberInRange} from "./modules/validators.js";
+import { validateObject } from "./validator/validator.mjs";
+import { userScheme } from "./validation/schemes/user.mjs";
+import { user, me } from "./model/users.mjs";
 
-import {validateFiled, validateObject} from "./modules/validations.js";
+function dumpErrors(errorList, validatedObject) {
+  errorList.forEach((error) => {
+    console.log(`Field: ${error.key}`);
+    console.log(`Provided value: ${validatedObject[error.key]}`);
+    console.log(`Message: ${error.message}`);
+  });
+}
 
-import dumpErrors from "./modules/print-results.js"
-
-import {user, userScheme} from "./modules/input-data.js"
-
-
-const result = validateObject(user, userScheme);
+const result = validateObject(me, userScheme);
 
 if (result.length !== 0) {
-  dumpErrors(result, user);
+  dumpErrors(result, me);
 } else {
   console.log(`All is ok`);
 }
